@@ -1,0 +1,10 @@
+FROM php:8.2-apache
+
+WORKDIR /var/www/html
+
+ENV DB_HOST=localhost
+ENV DB_PORT=3306
+
+COPY . .
+
+EXPOSE 80
