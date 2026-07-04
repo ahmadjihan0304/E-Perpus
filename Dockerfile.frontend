@@ -1,10 +1,16 @@
-FROM php:8.2-apache
+FROM nginx:alpine
 
-WORKDIR /var/www/html
+WORKDIR /usr/share/nginx/html
 
-ENV DB_HOST=localhost
-ENV DB_PORT=3306
 
-COPY . .
+# Copy asset frontend
+COPY public/ .
+
+
+ENV APP_ENV=production
+
 
 EXPOSE 80
+
+
+CMD ["nginx", "-g", "daemon off;"]
